@@ -66,3 +66,7 @@ test("uses a string value for every category palette entry", () => {
     assert.match(color, /^#[0-9A-Fa-f]{6}$/);
   }
 });
+
+test("keeps the fallback value in six-digit hex format", () => {
+  assert.match(tokens.FALLBACK_CATEGORY_COLOR, /^#[0-9A-Fa-f]{6}$/);
+});
