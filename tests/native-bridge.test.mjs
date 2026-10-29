@@ -22,3 +22,7 @@ test("keeps the web bridge native flag false", async () => {
 test("identifies the browser platform", async () => {
   assert.equal((await new FlowCoreWeb().getEngineInfo()).platform, 'web');
 });
+
+test("uses a placeholder version for the web fallback", async () => {
+  assert.equal((await new FlowCoreWeb().getEngineInfo()).version, '0.0.0');
+});
