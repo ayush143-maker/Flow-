@@ -107,3 +107,7 @@ test("tagline remains a single line", () => {
 test("app name remains compact", () => {
   assert.ok(info.APP_NAME.length <= 20);
 });
+
+test("tagline begins with a capital letter", () => {
+  assert.equal(info.APP_TAGLINE[0], info.APP_TAGLINE[0].toUpperCase());
+});
