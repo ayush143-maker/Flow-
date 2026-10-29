@@ -14,7 +14,8 @@
     "preview": "vite preview",
     "icons": "node scripts/generate-icons.mjs",
     "cap:sync": "npm run build && cap sync android",
-    "android:debug": "npm run cap:sync && cd android && ./gradlew assembleDebug"
+    "android:debug": "npm run cap:sync && cd android && ./gradlew assembleDebug",
+    "test": "node --test"
   },
   "dependencies": {
     "@capacitor/app": "^7.0.0",
