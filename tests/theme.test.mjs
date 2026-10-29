@@ -50,3 +50,7 @@ test("uses the semantic credit color", () => {
 test("uses the semantic danger color", () => {
   assert.equal(tokens.SEMANTIC.danger, '#E5484D');
 });
+
+test("uses the semantic warning color", () => {
+  assert.equal(tokens.SEMANTIC.warning, '#F5A524');
+});
