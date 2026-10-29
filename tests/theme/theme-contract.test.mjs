@@ -142,3 +142,7 @@ test("layout has a reusable flex column app shell", () => {
 test("global CSS uses a shared background gradient", () => {
   assert.match(css, /background-image:\s*var\(--bg-grad\)/);
 });
+
+test("dark mode includes dark overlay opacity", () => {
+  assert.match(css, /--overlay:\s*rgba\(2, 6, 16, 0\.62\)/);
+});
