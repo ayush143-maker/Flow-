@@ -56,3 +56,8 @@ test("app version matches the package manifest", async () => {
   const pkg = JSON.parse(await readFile(new URL('../package.json', import.meta.url), 'utf8'));
   assert.equal(info.APP_VERSION, pkg.version);
 });
+
+test("HTML document title matches the app name", async () => {
+  const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+  assert.match(html, new RegExp('<title>' + info.APP_NAME + '</title>'));
+});
