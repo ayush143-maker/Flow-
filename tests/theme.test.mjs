@@ -82,3 +82,7 @@ test("provides colors for the remaining built-in categories", () => {
     assert.ok(tokens.CATEGORY_COLORS[name]);
   }
 });
+
+test("returns the same fallback for repeated unknown keys", () => {
+  assert.equal(tokens.categoryColor('unknown-a'), tokens.categoryColor('unknown-b'));
+});
