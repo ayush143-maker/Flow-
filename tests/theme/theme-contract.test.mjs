@@ -110,3 +110,7 @@ test("card border uses the shared line token", () => {
 test("card radius uses a shared radius token", () => {
   assert.match(css, /border-radius:\s*var\(--radius-lg\)/);
 });
+
+test("dark mode declares a distinct second surface", () => {
+  assert.match(css, /--surface-2:\s*#182236/);
+});
