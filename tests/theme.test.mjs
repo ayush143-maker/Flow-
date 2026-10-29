@@ -76,3 +76,9 @@ test("provides colors for the common spending categories", () => {
     assert.ok(tokens.CATEGORY_COLORS[name]);
   }
 });
+
+test("provides colors for the remaining built-in categories", () => {
+  for (const name of ['Health', 'Education', 'Subscriptions', 'Cash', 'Transfers', 'Others']) {
+    assert.ok(tokens.CATEGORY_COLORS[name]);
+  }
+});
