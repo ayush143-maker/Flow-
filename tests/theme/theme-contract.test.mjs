@@ -130,3 +130,7 @@ test("global CSS has an explicit stronger divider token", () => {
 test("base layout keeps the root full height", () => {
   assert.match(css, /html,\s*\nbody,\s*\n#root\s*\{\s*height:\s*100%/);
 });
+
+test("body disables vertical overscroll chaining", () => {
+  assert.match(css, /overscroll-behavior-y:\s*none/);
+});
