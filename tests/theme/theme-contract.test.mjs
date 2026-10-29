@@ -98,3 +98,7 @@ test("interactive controls inherit the application font", () => {
 test("buttons expose a pointer cursor", () => {
   assert.match(css, /button\s*\{\s*cursor:\s*pointer/);
 });
+
+test("links inherit text color and suppress default underline", () => {
+  assert.match(css, /a\s*\{[\s\S]*?color:\s*inherit;[\s\S]*?text-decoration:\s*none/);
+});
