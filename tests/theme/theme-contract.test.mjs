@@ -57,3 +57,7 @@ test("global CSS includes reusable card styling", () => {
   assert.match(css, /\.card\s*\{/);
   assert.match(css, /background:\s*var\(--surface\)/);
 });
+
+test("global CSS contains the primary motion animation", () => {
+  assert.match(css, /@keyframes flow-rise/);
+});
