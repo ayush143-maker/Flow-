@@ -26,3 +26,8 @@ test("identifies the browser platform", async () => {
 test("uses a placeholder version for the web fallback", async () => {
   assert.equal((await new FlowCoreWeb().getEngineInfo()).version, '0.0.0');
 });
+
+test("returns a promise from the asynchronous bridge method", async () => {
+  const result = new FlowCoreWeb().getEngineInfo();
+  assert.equal(typeof result.then, 'function');
+});
