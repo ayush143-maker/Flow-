@@ -158,3 +158,7 @@ test("system dark mode is gated by the explicit light override", () => {
 test("global CSS defines transparent tap highlights", () => {
   assert.match(css, /-webkit-tap-highlight-color:\s*transparent/);
 });
+
+test("global CSS suppresses default heading margins", () => {
+  assert.match(css, /h1,[\s\S]*?margin:\s*0/);
+});
