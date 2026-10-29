@@ -114,3 +114,7 @@ test("card radius uses a shared radius token", () => {
 test("dark mode declares a distinct second surface", () => {
   assert.match(css, /--surface-2:\s*#182236/);
 });
+
+test("light mode includes a third surface level", () => {
+  assert.match(css, /--surface-3:\s*#E7ECF4/);
+});
