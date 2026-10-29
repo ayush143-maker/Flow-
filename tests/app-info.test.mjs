@@ -61,3 +61,8 @@ test("HTML document title matches the app name", async () => {
   const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   assert.match(html, new RegExp('<title>' + info.APP_NAME + '</title>'));
 });
+
+test("HTML shell exposes the React root element", async () => {
+  const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+  assert.match(html, /id=["']root["']/);
+});
