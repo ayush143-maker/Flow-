@@ -46,3 +46,7 @@ test("app name contains no newline", () => {
 test("app tagline contains no newline", () => {
   assert.equal(info.APP_TAGLINE.includes('\n'), false);
 });
+
+test("app tagline ends with punctuation", () => {
+  assert.match(info.APP_TAGLINE, /[.!?]$/);
+});
