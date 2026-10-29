@@ -54,3 +54,7 @@ test("uses the semantic danger color", () => {
 test("uses the semantic warning color", () => {
   assert.equal(tokens.SEMANTIC.warning, '#F5A524');
 });
+
+test("provides a fallback string for an empty category key", () => {
+  assert.equal(tokens.categoryColor(''), tokens.FALLBACK_CATEGORY_COLOR);
+});
