@@ -58,3 +58,11 @@ test("uses the semantic warning color", () => {
 test("provides a fallback string for an empty category key", () => {
   assert.equal(tokens.categoryColor(''), tokens.FALLBACK_CATEGORY_COLOR);
 });
+
+test("uses a string value for every category palette entry", () => {
+  for (const [name, color] of Object.entries(tokens.CATEGORY_COLORS)) {
+    assert.equal(typeof name, 'string');
+    assert.equal(typeof color, 'string');
+    assert.match(color, /^#[0-9A-Fa-f]{6}$/);
+  }
+});
