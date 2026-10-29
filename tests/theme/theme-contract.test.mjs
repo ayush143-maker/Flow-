@@ -134,3 +134,7 @@ test("base layout keeps the root full height", () => {
 test("body disables vertical overscroll chaining", () => {
   assert.match(css, /overscroll-behavior-y:\s*none/);
 });
+
+test("layout has a reusable flex column app shell", () => {
+  assert.match(css, /\.app-shell\s*\{[\s\S]*?display:\s*flex;[\s\S]*?flex-direction:\s*column/);
+});
