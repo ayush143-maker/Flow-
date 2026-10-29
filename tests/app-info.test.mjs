@@ -42,3 +42,7 @@ test("app version segments are all numeric", () => {
 test("app name contains no newline", () => {
   assert.equal(info.APP_NAME.includes('\n'), false);
 });
+
+test("app tagline contains no newline", () => {
+  assert.equal(info.APP_TAGLINE.includes('\n'), false);
+});
