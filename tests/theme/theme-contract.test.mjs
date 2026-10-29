@@ -126,3 +126,7 @@ test("dark mode includes a third surface level", () => {
 test("global CSS has an explicit stronger divider token", () => {
   assert.match(css, /--line-strong:\s*#D2D9E6/);
 });
+
+test("base layout keeps the root full height", () => {
+  assert.match(css, /html,\s*\nbody,\s*\n#root\s*\{\s*height:\s*100%/);
+});
