@@ -29,3 +29,8 @@ test("global CSS defines spacing tokens", () => {
   assert.match(css, /--space-1:\s*4px/);
   assert.match(css, /--space-7:\s*48px/);
 });
+
+test("global CSS defines radii tokens", () => {
+  assert.match(css, /--radius-sm:\s*12px/);
+  assert.match(css, /--radius-full:\s*999px/);
+});
