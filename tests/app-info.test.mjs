@@ -95,3 +95,7 @@ test("tagline includes the Flow product phrase", () => {
 test("app name does not include path separators", () => {
   assert.equal(/[\\/]/.test(info.APP_NAME), false);
 });
+
+test("app version includes no prerelease suffix", () => {
+  assert.match(info.APP_VERSION, /^\d+\.\d+\.\d+$/);
+});
