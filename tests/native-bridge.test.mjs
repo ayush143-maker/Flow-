@@ -61,3 +61,7 @@ test("web bridge remains safe to query multiple times", async () => {
 test("web bridge version is not empty", async () => {
   assert.ok((await new FlowCoreWeb().getEngineInfo()).version.length > 0);
 });
+
+test("web bridge keeps the platform label lowercase", async () => {
+  assert.equal((await new FlowCoreWeb().getEngineInfo()).platform, 'web');
+});
