@@ -42,3 +42,7 @@ test("keeps the brand gradient non-empty", () => {
   assert.equal(typeof tokens.BRAND.gradient, 'string');
   assert.ok(tokens.BRAND.gradient.length > 0);
 });
+
+test("uses the semantic credit color", () => {
+  assert.equal(tokens.SEMANTIC.credit, '#0BA678');
+});
