@@ -79,3 +79,7 @@ test("metadata version does not contain whitespace", async () => {
 test("app name uses a simple portable identifier", async () => {
   assert.match(info.APP_NAME, /^[A-Za-z0-9 -]+$/);
 });
+
+test("tagline ends in a sentence mark", async () => {
+  assert.match(info.APP_TAGLINE, /[.!?]$/);
+});
