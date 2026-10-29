@@ -34,3 +34,7 @@ test("global CSS defines radii tokens", () => {
   assert.match(css, /--radius-sm:\s*12px/);
   assert.match(css, /--radius-full:\s*999px/);
 });
+
+test("global CSS defines a font stack", () => {
+  assert.match(css, /--font-sans:/);
+});
