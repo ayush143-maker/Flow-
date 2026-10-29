@@ -52,3 +52,8 @@ test("web bridge reports stable information on repeated calls", async () => {
 test("web bridge does not add unrecognized status fields", async () => {
   assert.deepEqual(Object.keys(await new FlowCoreWeb().getEngineInfo()).sort(), ['native','platform','version']);
 });
+
+test("web bridge remains safe to query multiple times", async () => {
+  const api = new FlowCoreWeb();
+  for (let i = 0; i < 5; i++) assert.equal((await api.getEngineInfo()).native, false);
+});
