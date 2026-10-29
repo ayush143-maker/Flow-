@@ -103,3 +103,7 @@ test("app version includes no prerelease suffix", () => {
 test("tagline remains a single line", () => {
   assert.equal(info.APP_TAGLINE.includes('\r'), false);
 });
+
+test("app name remains compact", () => {
+  assert.ok(info.APP_NAME.length <= 20);
+});
