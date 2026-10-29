@@ -71,3 +71,7 @@ test("HTML shell loads the TypeScript entrypoint", async () => {
   const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   assert.match(html, /src="\/src\/main\.tsx"/);
 });
+
+test("metadata version does not contain whitespace", async () => {
+  assert.equal(info.APP_VERSION, info.APP_VERSION.trim());
+});
