@@ -30,3 +30,7 @@ test("app tagline is a string", () => {
 test("app version is a string", () => {
   assert.equal(typeof info.APP_VERSION, 'string');
 });
+
+test("app version contains exactly three numeric segments", () => {
+  assert.equal(info.APP_VERSION.split('.').length, 3);
+});
