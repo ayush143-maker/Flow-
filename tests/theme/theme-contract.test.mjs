@@ -61,3 +61,7 @@ test("global CSS includes reusable card styling", () => {
 test("global CSS contains the primary motion animation", () => {
   assert.match(css, /@keyframes flow-rise/);
 });
+
+test("global CSS transitions foreground and background", () => {
+  assert.match(css, /transition:\s*background-color 0\.25s ease, color 0\.25s ease/);
+});
