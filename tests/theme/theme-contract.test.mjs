@@ -65,3 +65,8 @@ test("global CSS contains the primary motion animation", () => {
 test("global CSS transitions foreground and background", () => {
   assert.match(css, /transition:\s*background-color 0\.25s ease, color 0\.25s ease/);
 });
+
+test("global CSS limits image and SVG width", () => {
+  assert.match(css, /img,\s*\nsvg\s*\{/);
+  assert.match(css, /max-width:\s*100%/);
+});
