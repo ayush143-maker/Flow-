@@ -17,3 +17,8 @@ test('app tagline has no leading or trailing whitespace', () => { assert.equal(i
 test("tagline identifies money as the product focus", () => {
   assert.match(info.APP_TAGLINE.toLowerCase(), /money/);
 });
+
+test("app name is a non-empty string", () => {
+  assert.equal(typeof info.APP_NAME, 'string');
+  assert.ok(info.APP_NAME.length > 0);
+});
