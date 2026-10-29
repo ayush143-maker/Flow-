@@ -75,3 +75,7 @@ test("HTML shell loads the TypeScript entrypoint", async () => {
 test("metadata version does not contain whitespace", async () => {
   assert.equal(info.APP_VERSION, info.APP_VERSION.trim());
 });
+
+test("app name uses a simple portable identifier", async () => {
+  assert.match(info.APP_NAME, /^[A-Za-z0-9 -]+$/);
+});
