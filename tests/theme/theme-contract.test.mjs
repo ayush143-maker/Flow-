@@ -118,3 +118,7 @@ test("dark mode declares a distinct second surface", () => {
 test("light mode includes a third surface level", () => {
   assert.match(css, /--surface-3:\s*#E7ECF4/);
 });
+
+test("dark mode includes a third surface level", () => {
+  assert.match(css, /--surface-3:\s*#1F2B42/);
+});
