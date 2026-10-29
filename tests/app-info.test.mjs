@@ -99,3 +99,7 @@ test("app name does not include path separators", () => {
 test("app version includes no prerelease suffix", () => {
   assert.match(info.APP_VERSION, /^\d+\.\d+\.\d+$/);
 });
+
+test("tagline remains a single line", () => {
+  assert.equal(info.APP_TAGLINE.includes('\r'), false);
+});
