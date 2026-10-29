@@ -138,3 +138,7 @@ test("body disables vertical overscroll chaining", () => {
 test("layout has a reusable flex column app shell", () => {
   assert.match(css, /\.app-shell\s*\{[\s\S]*?display:\s*flex;[\s\S]*?flex-direction:\s*column/);
 });
+
+test("global CSS uses a shared background gradient", () => {
+  assert.match(css, /background-image:\s*var\(--bg-grad\)/);
+});
