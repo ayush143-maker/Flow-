@@ -146,3 +146,7 @@ test("global CSS uses a shared background gradient", () => {
 test("dark mode includes dark overlay opacity", () => {
   assert.match(css, /--overlay:\s*rgba\(2, 6, 16, 0\.62\)/);
 });
+
+test("reduced motion also reduces transition duration", () => {
+  assert.match(css, /transition-duration:\s*0\.01ms\s*!important/);
+});
