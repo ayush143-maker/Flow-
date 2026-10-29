@@ -106,3 +106,7 @@ test("links inherit text color and suppress default underline", () => {
 test("card border uses the shared line token", () => {
   assert.match(css, /border:\s*1px solid var\(--line\)/);
 });
+
+test("card radius uses a shared radius token", () => {
+  assert.match(css, /border-radius:\s*var\(--radius-lg\)/);
+});
