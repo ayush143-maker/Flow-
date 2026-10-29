@@ -150,3 +150,7 @@ test("dark mode includes dark overlay opacity", () => {
 test("reduced motion also reduces transition duration", () => {
   assert.match(css, /transition-duration:\s*0\.01ms\s*!important/);
 });
+
+test("system dark mode is gated by the explicit light override", () => {
+  assert.match(css, /:root:not\(\[data-theme='light'\]\)/);
+});
