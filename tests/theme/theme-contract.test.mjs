@@ -94,3 +94,7 @@ test("base body typography includes readable line height", () => {
 test("interactive controls inherit the application font", () => {
   assert.match(css, /button,\s*\ninput,\s*\nselect,\s*\ntextarea\s*\{[\s\S]*?font:\s*inherit/);
 });
+
+test("buttons expose a pointer cursor", () => {
+  assert.match(css, /button\s*\{\s*cursor:\s*pointer/);
+});
