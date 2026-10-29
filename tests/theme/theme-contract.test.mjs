@@ -43,3 +43,7 @@ test("global CSS includes visible focus styling", () => {
   assert.match(css, /:focus-visible/);
   assert.match(css, /outline:\s*2px solid var\(--brand-mint\)/);
 });
+
+test("global CSS uses border-box sizing", () => {
+  assert.match(css, /box-sizing:\s*border-box/);
+});
