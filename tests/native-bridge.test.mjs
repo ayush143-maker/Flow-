@@ -39,3 +39,7 @@ test("web bridge returns a boolean native flag", async () => {
 test("web bridge returns a string platform", async () => {
   assert.equal(typeof (await new FlowCoreWeb().getEngineInfo()).platform, 'string');
 });
+
+test("web bridge uses a semantic placeholder version", async () => {
+  assert.match((await new FlowCoreWeb().getEngineInfo()).version, /^\d+\.\d+\.\d+$/);
+});
