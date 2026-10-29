@@ -13,3 +13,7 @@ test('app tagline is present', () => { assert.ok(info.APP_TAGLINE.length > 0); }
 test('app version uses semantic version shape', () => { assert.match(info.APP_VERSION, /^\d+\.\d+\.\d+$/); });
 test('app name has no leading or trailing whitespace', () => { assert.equal(info.APP_NAME, info.APP_NAME.trim()); });
 test('app tagline has no leading or trailing whitespace', () => { assert.equal(info.APP_TAGLINE, info.APP_TAGLINE.trim()); });
+
+test("tagline identifies money as the product focus", () => {
+  assert.match(info.APP_TAGLINE.toLowerCase(), /money/);
+});
