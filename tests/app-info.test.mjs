@@ -34,3 +34,7 @@ test("app version is a string", () => {
 test("app version contains exactly three numeric segments", () => {
   assert.equal(info.APP_VERSION.split('.').length, 3);
 });
+
+test("app version segments are all numeric", () => {
+  assert.ok(info.APP_VERSION.split('.').every((part) => /^\d+$/.test(part)));
+});
