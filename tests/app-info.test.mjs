@@ -38,3 +38,7 @@ test("app version contains exactly three numeric segments", () => {
 test("app version segments are all numeric", () => {
   assert.ok(info.APP_VERSION.split('.').every((part) => /^\d+$/.test(part)));
 });
+
+test("app name contains no newline", () => {
+  assert.equal(info.APP_NAME.includes('\n'), false);
+});
