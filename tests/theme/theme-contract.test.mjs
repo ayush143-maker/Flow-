@@ -82,3 +82,7 @@ test("dark theme includes a readable foreground token", () => {
 test("all spacing values use pixel units", () => {
   assert.ok([...css.matchAll(/--space-\d+:\s*(\d+)px/g)].length >= 7);
 });
+
+test("body defaults to the configured font stack", () => {
+  assert.match(css, /font-family:\s*var\(--font-sans\)/);
+});
