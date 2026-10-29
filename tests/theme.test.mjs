@@ -37,3 +37,8 @@ test('provides a color for the Food category', () => {
 test('uses the fallback color for an unknown category', () => {
   assert.equal(tokens.categoryColor('Not a category'), tokens.FALLBACK_CATEGORY_COLOR);
 });
+
+test("keeps the brand gradient non-empty", () => {
+  assert.equal(typeof tokens.BRAND.gradient, 'string');
+  assert.ok(tokens.BRAND.gradient.length > 0);
+});
