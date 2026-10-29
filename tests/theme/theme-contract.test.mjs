@@ -70,3 +70,7 @@ test("global CSS limits image and SVG width", () => {
   assert.match(css, /img,\s*\nsvg\s*\{/);
   assert.match(css, /max-width:\s*100%/);
 });
+
+test("dark theme includes a dark surface token", () => {
+  assert.match(css, /--surface:\s*#111928/);
+});
