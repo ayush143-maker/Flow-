@@ -102,3 +102,7 @@ test("buttons expose a pointer cursor", () => {
 test("links inherit text color and suppress default underline", () => {
   assert.match(css, /a\s*\{[\s\S]*?color:\s*inherit;[\s\S]*?text-decoration:\s*none/);
 });
+
+test("card border uses the shared line token", () => {
+  assert.match(css, /border:\s*1px solid var\(--line\)/);
+});
