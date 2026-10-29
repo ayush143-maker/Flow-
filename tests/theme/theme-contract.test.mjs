@@ -78,3 +78,7 @@ test("dark theme includes a dark surface token", () => {
 test("dark theme includes a readable foreground token", () => {
   assert.match(css, /--ink:\s*#F2F5FA/);
 });
+
+test("all spacing values use pixel units", () => {
+  assert.ok([...css.matchAll(/--space-\d+:\s*(\d+)px/g)].length >= 7);
+});
