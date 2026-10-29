@@ -24,3 +24,8 @@ test('global CSS includes the dark theme override', () => {
 test('global CSS respects reduced-motion preference', () => {
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
 });
+
+test("global CSS defines spacing tokens", () => {
+  assert.match(css, /--space-1:\s*4px/);
+  assert.match(css, /--space-7:\s*48px/);
+});
