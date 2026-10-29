@@ -18,3 +18,7 @@ test('web bridge resolves engine information without claiming native support', a
 test("keeps the web bridge native flag false", async () => {
   assert.equal((await new FlowCoreWeb().getEngineInfo()).native, false);
 });
+
+test("identifies the browser platform", async () => {
+  assert.equal((await new FlowCoreWeb().getEngineInfo()).platform, 'web');
+});
