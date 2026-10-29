@@ -162,3 +162,7 @@ test("global CSS defines transparent tap highlights", () => {
 test("global CSS suppresses default heading margins", () => {
   assert.match(css, /h1,[\s\S]*?margin:\s*0/);
 });
+
+test("global CSS keeps SVGs from exceeding parent width", () => {
+  assert.match(css, /max-width:\s*100%/);
+});
