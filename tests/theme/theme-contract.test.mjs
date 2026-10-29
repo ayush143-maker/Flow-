@@ -38,3 +38,8 @@ test("global CSS defines radii tokens", () => {
 test("global CSS defines a font stack", () => {
   assert.match(css, /--font-sans:/);
 });
+
+test("global CSS includes visible focus styling", () => {
+  assert.match(css, /:focus-visible/);
+  assert.match(css, /outline:\s*2px solid var\(--brand-mint\)/);
+});
