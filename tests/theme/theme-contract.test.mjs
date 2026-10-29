@@ -47,3 +47,8 @@ test("global CSS includes visible focus styling", () => {
 test("global CSS uses border-box sizing", () => {
   assert.match(css, /box-sizing:\s*border-box/);
 });
+
+test("global CSS defines app shell safe-area spacing", () => {
+  assert.match(css, /padding-top:\s*env\(safe-area-inset-top\)/);
+  assert.match(css, /padding-bottom:\s*env\(safe-area-inset-bottom\)/);
+});
