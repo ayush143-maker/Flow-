@@ -57,3 +57,7 @@ test("web bridge remains safe to query multiple times", async () => {
   const api = new FlowCoreWeb();
   for (let i = 0; i < 5; i++) assert.equal((await api.getEngineInfo()).native, false);
 });
+
+test("web bridge version is not empty", async () => {
+  assert.ok((await new FlowCoreWeb().getEngineInfo()).version.length > 0);
+});
