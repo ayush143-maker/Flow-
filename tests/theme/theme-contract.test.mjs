@@ -90,3 +90,7 @@ test("body defaults to the configured font stack", () => {
 test("base body typography includes readable line height", () => {
   assert.match(css, /line-height:\s*1\.5/);
 });
+
+test("interactive controls inherit the application font", () => {
+  assert.match(css, /button,\s*\ninput,\s*\nselect,\s*\ntextarea\s*\{[\s\S]*?font:\s*inherit/);
+});
