@@ -35,3 +35,7 @@ test("returns a promise from the asynchronous bridge method", async () => {
 test("web bridge returns a boolean native flag", async () => {
   assert.equal(typeof (await new FlowCoreWeb().getEngineInfo()).native, 'boolean');
 });
+
+test("web bridge returns a string platform", async () => {
+  assert.equal(typeof (await new FlowCoreWeb().getEngineInfo()).platform, 'string');
+});
