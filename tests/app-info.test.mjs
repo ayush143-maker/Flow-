@@ -26,3 +26,7 @@ test("app name is a non-empty string", () => {
 test("app tagline is a string", () => {
   assert.equal(typeof info.APP_TAGLINE, 'string');
 });
+
+test("app version is a string", () => {
+  assert.equal(typeof info.APP_VERSION, 'string');
+});
