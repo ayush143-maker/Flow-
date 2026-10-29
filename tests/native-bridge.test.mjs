@@ -14,3 +14,7 @@ test('web bridge resolves engine information without claiming native support', a
   const result = await new FlowCoreWeb().getEngineInfo();
   assert.deepEqual(result, { native: false, platform: 'web', version: '0.0.0' });
 });
+
+test("keeps the web bridge native flag false", async () => {
+  assert.equal((await new FlowCoreWeb().getEngineInfo()).native, false);
+});
