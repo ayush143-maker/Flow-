@@ -48,3 +48,7 @@ test("web bridge reports stable information on repeated calls", async () => {
   const api = new FlowCoreWeb();
   assert.deepEqual(await api.getEngineInfo(), await api.getEngineInfo());
 });
+
+test("web bridge does not add unrecognized status fields", async () => {
+  assert.deepEqual(Object.keys(await new FlowCoreWeb().getEngineInfo()).sort(), ['native','platform','version']);
+});
