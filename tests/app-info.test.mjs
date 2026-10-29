@@ -91,3 +91,7 @@ test("tagline is short enough for a compact brand line", async () => {
 test("tagline includes the Flow product phrase", () => {
   assert.match(info.APP_TAGLINE.toLowerCase(), /flow/);
 });
+
+test("app name does not include path separators", () => {
+  assert.equal(/[\\/]/.test(info.APP_NAME), false);
+});
