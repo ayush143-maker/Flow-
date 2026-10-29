@@ -83,3 +83,7 @@ test("app name uses a simple portable identifier", async () => {
 test("tagline ends in a sentence mark", async () => {
   assert.match(info.APP_TAGLINE, /[.!?]$/);
 });
+
+test("tagline is short enough for a compact brand line", async () => {
+  assert.ok(info.APP_TAGLINE.length < 80);
+});
