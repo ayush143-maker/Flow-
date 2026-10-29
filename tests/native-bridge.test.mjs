@@ -43,3 +43,8 @@ test("web bridge returns a string platform", async () => {
 test("web bridge uses a semantic placeholder version", async () => {
   assert.match((await new FlowCoreWeb().getEngineInfo()).version, /^\d+\.\d+\.\d+$/);
 });
+
+test("web bridge reports stable information on repeated calls", async () => {
+  const api = new FlowCoreWeb();
+  assert.deepEqual(await api.getEngineInfo(), await api.getEngineInfo());
+});
