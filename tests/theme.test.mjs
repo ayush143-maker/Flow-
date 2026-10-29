@@ -70,3 +70,9 @@ test("uses a string value for every category palette entry", () => {
 test("keeps the fallback value in six-digit hex format", () => {
   assert.match(tokens.FALLBACK_CATEGORY_COLOR, /^#[0-9A-Fa-f]{6}$/);
 });
+
+test("provides colors for the common spending categories", () => {
+  for (const name of ['Groceries', 'Shopping', 'Travel', 'Bills', 'Entertainment']) {
+    assert.ok(tokens.CATEGORY_COLORS[name]);
+  }
+});
