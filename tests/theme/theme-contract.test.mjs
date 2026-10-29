@@ -74,3 +74,7 @@ test("global CSS limits image and SVG width", () => {
 test("dark theme includes a dark surface token", () => {
   assert.match(css, /--surface:\s*#111928/);
 });
+
+test("dark theme includes a readable foreground token", () => {
+  assert.match(css, /--ink:\s*#F2F5FA/);
+});
