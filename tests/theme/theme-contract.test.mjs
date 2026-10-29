@@ -122,3 +122,7 @@ test("light mode includes a third surface level", () => {
 test("dark mode includes a third surface level", () => {
   assert.match(css, /--surface-3:\s*#1F2B42/);
 });
+
+test("global CSS has an explicit stronger divider token", () => {
+  assert.match(css, /--line-strong:\s*#D2D9E6/);
+});
