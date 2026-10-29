@@ -86,3 +86,7 @@ test("all spacing values use pixel units", () => {
 test("body defaults to the configured font stack", () => {
   assert.match(css, /font-family:\s*var\(--font-sans\)/);
 });
+
+test("base body typography includes readable line height", () => {
+  assert.match(css, /line-height:\s*1\.5/);
+});
