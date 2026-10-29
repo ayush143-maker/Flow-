@@ -66,3 +66,8 @@ test("HTML shell exposes the React root element", async () => {
   const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
   assert.match(html, /id=["']root["']/);
 });
+
+test("HTML shell loads the TypeScript entrypoint", async () => {
+  const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+  assert.match(html, /src="\/src\/main\.tsx"/);
+});
