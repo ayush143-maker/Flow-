@@ -154,3 +154,7 @@ test("reduced motion also reduces transition duration", () => {
 test("system dark mode is gated by the explicit light override", () => {
   assert.match(css, /:root:not\(\[data-theme='light'\]\)/);
 });
+
+test("global CSS defines transparent tap highlights", () => {
+  assert.match(css, /-webkit-tap-highlight-color:\s*transparent/);
+});
