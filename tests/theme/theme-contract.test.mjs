@@ -52,3 +52,8 @@ test("global CSS defines app shell safe-area spacing", () => {
   assert.match(css, /padding-top:\s*env\(safe-area-inset-top\)/);
   assert.match(css, /padding-bottom:\s*env\(safe-area-inset-bottom\)/);
 });
+
+test("global CSS includes reusable card styling", () => {
+  assert.match(css, /\.card\s*\{/);
+  assert.match(css, /background:\s*var\(--surface\)/);
+});
