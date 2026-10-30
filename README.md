@@ -27,6 +27,14 @@ Most application code is under `src/`; the `theme/` area holds visual tokens and
 
 For app identity or native-wrapper settings, review `capacitor.config.ts` and relevant files under `android/` before making project-specific changes. Avoid changing configuration based on assumptions about settings not documented here.
 
+## Troubleshooting
+
+These are diagnostic steps, not reports of known problems.
+
+1. For the web app, confirm `index.html` loads the entry at `/src/main.tsx` and that the referenced file exists. The entry and favicon paths are root-relative; check that they resolve from the intended web root, including if hosted under a URL subpath.
+2. If a local asset is missing, compare references in `src/` and `index.html` with the project files. In particular, check that `/favicon.svg` is present at the expected web root. Preserve paths when moving files, or update references.
+3. Inspect the browser Console and Network panel for web errors and failed requests; use the relevant Android development-environment diagnostics for native-only problems. Check request URLs to distinguish missing local files from external resources that depend on network access.
+
 ## Configuration and data handling
 
 The listed root files do not include an `.env.example`; this README does not define environment variables, backend settings, or service credentials. Do not invent configuration values. Review `capacitor.config.ts` and the Android files for their existing roles before changing them. Keep real credentials and private data out of tracked source and configuration; if you add a template, use placeholders only.
@@ -38,9 +46,6 @@ Flow includes local preference storage support, but this README does not establi
 These are review actions, not verified results or performance measurements. No compatibility testing is recorded here.
 
 - [ ] Start the web app with `npm run dev` and review it in current browsers relevant to its web stack. Record browser and version for issues. Review the Android wrapper separately for native changes; browser results do not establish WebView or native compatibility.
-- [ ] Inspect the browser Console and Network panel for errors, failed requests, and unexpected warnings. Use the appropriate Android development-environment diagnostics for native-only problems.
-- [ ] Verify that the root-relative `/favicon.svg` reference resolves from the intended web root. Inspect image, audio, video, and font references in `src/` and confirm each local path matches a file. Check the intended deployed path too if the app is hosted beneath a URL subpath.
-- [ ] Verify remote resource URLs and consider the experience if a resource is unavailable. Trace references in source, styles, and native configuration before removing assets from the source tree or `android/` wrapper.
 - [ ] Compare narrow mobile-sized and desktop-sized web viewports, checking status information and controls. For native changes, also review relevant layouts in the Android wrapper.
 - [ ] Try the foundation screen's platform and engine status display and any visible controls. Do not infer finance workflows from this screen.
 - [ ] Before committing, inspect changed configuration and data-handling code for credentials or real personal information. Treat values bundled into web or native clients as visible to users.
