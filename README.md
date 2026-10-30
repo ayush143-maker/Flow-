@@ -1,6 +1,6 @@
 # Flow-
 
-Flow is a local-first personal-finance app foundation for Android, built with React, TypeScript, Vite, and Capacitor. The current project focuses on the web-to-native connection and a foundation screen that reports platform and engine status. It also includes theme tokens, app identity, native bridge interfaces, and local preference storage support.
+Flow is a local-first personal-finance app foundation for Android, built with React, TypeScript, Vite, and Capacitor. The current project focuses on the web-to-native connection and a foundation screen that reports platform and engine status. It also includes theme tokens, app identity, native bridge interfaces, and local preference storage support. The README does not describe finance workflows such as tracking transactions or managing accounts.
 
 ## Run the web app
 
