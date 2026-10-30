@@ -21,41 +21,12 @@ npm run preview
 
 The Android wrapper is in `android/`. Web development and preview commands are for reviewing the web app, not a substitute for checking the native wrapper.
 
-## Personalize
+## Project files
 
-Most application code is under `src/`; the `theme/` area holds visual tokens and global styling. Use those existing theme files when adjusting appearance, and inspect the relevant screen files under `src/` before changing visible copy. The root `index.html` references `/favicon.svg`; preserve that root-relative path if you keep the existing favicon, or update the reference if you change its location.
+Most application code is under `src/`; the `theme/` area holds visual tokens and global styling. Review the relevant screen files under `src/` before changing visible copy. The root `index.html` references `/src/main.tsx` and `/favicon.svg`; preserve these root-relative paths or update the references if their locations change.
 
-For app identity or native-wrapper settings, review `capacitor.config.ts` and relevant files under `android/` before making project-specific changes. Avoid changing configuration based on assumptions about settings not documented here.
+For app identity or native-wrapper settings, review `capacitor.config.ts` and relevant files under `android/` before editing. The listed root files do not include an `.env.example`, and this README does not define environment variables or backend settings. Do not add undocumented configuration or place credentials in tracked files. Values included in a web or native client should be treated as visible to users. Local preference storage support does not establish that financial records or other sensitive data are stored.
 
-## Troubleshooting
+## Contributor handoff
 
-These are diagnostic steps, not reports of known problems.
-
-1. For the web app, confirm `index.html` loads the entry at `/src/main.tsx` and that the referenced file exists. The entry and favicon paths are root-relative; check that they resolve from the intended web root, including if hosted under a URL subpath.
-2. If a local asset is missing, compare references in `src/` and `index.html` with the project files. In particular, check that `/favicon.svg` is present at the expected web root. Preserve paths when moving files, or update references.
-3. Inspect the browser Console and Network panel for web errors and failed requests; use the relevant Android development-environment diagnostics for native-only problems. Check request URLs to distinguish missing local files from external resources that depend on network access.
-
-## Configuration and data handling
-
-The listed root files do not include an `.env.example`; this README does not define environment variables, backend settings, or service credentials. Do not invent configuration values. Review `capacitor.config.ts` and the Android files for their existing roles before changing them. Keep real credentials and private data out of tracked source and configuration; if you add a template, use placeholders only.
-
-Flow includes local preference storage support, but this README does not establish that it stores financial records or other sensitive data. Treat values stored on a device as user data, not as a secure secret store. Do not use real financial or personal information in test content. Any values included in the web bundle or packaged client should be considered visible to users; do not embed private keys, passwords, or privileged credentials there. If a credential is committed accidentally, remove or replace it and rotate it where applicable; removing it from the latest revision alone may not clear repository history.
-
-## Browser, platform, and asset review checklist
-
-These are review actions, not verified results or performance measurements. No compatibility testing is recorded here.
-
-- [ ] Start the web app with `npm run dev` and review it in current browsers relevant to its web stack. Record browser and version for issues. Review the Android wrapper separately for native changes; browser results do not establish WebView or native compatibility.
-- [ ] Compare narrow mobile-sized and desktop-sized web viewports, checking status information and controls. For native changes, also review relevant layouts in the Android wrapper.
-- [ ] Try the foundation screen's platform and engine status display and any visible controls. Do not infer finance workflows from this screen.
-- [ ] Before committing, inspect changed configuration and data-handling code for credentials or real personal information. Treat values bundled into web or native clients as visible to users.
-
-## Accessibility review checklist
-
-These are future checks for the web screen and, where relevant, the Android wrapper; they are not compliance claims or verified results:
-
-- [ ] Use Tab and Shift+Tab in the web app to reach interactive controls, if present. Check keyboard order, operation, and visible focus; review native controls with a hardware keyboard where supported.
-- [ ] Check meaningful accessible names and that platform and engine status text is understandable to assistive technology.
-- [ ] Review text, status indicators, and control contrast. Check text alternatives for meaningful images and reduced-motion behavior if motion is present.
-
-No review results are recorded here. `npm run typecheck`, `npm run build`, and `npm run preview` are project commands, but running them does not replace the manual browser or platform review.
+Keep changes focused and preserve filenames and relative references, or update every affected reference when necessary. In your handoff, summarize what changed and identify the relevant files, noting whether the change affects the web screen, configuration, or Android wrapper. Before publishing, manually review the web page and any relevant native changes, then inspect the final changes for unintended edits or private information. This is a review checklist, not a record of completed checks.
