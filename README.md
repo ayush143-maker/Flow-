@@ -27,6 +27,12 @@ Most application code is under `src/`; the `theme/` area holds visual tokens and
 
 For app identity or native-wrapper settings, review `capacitor.config.ts` and relevant files under `android/` before making project-specific changes. Avoid changing configuration based on assumptions about settings not documented here.
 
+## Configuration and data handling
+
+The listed root files do not include an `.env.example`; this README does not define environment variables, backend settings, or service credentials. Do not invent configuration values. Review `capacitor.config.ts` and the Android files for their existing roles before changing them. Keep real credentials and private data out of tracked source and configuration; if you add a template, use placeholders only.
+
+Flow includes local preference storage support, but this README does not establish that it stores financial records or other sensitive data. Treat values stored on a device as user data, not as a secure secret store. Do not use real financial or personal information in test content. Any values included in the web bundle or packaged client should be considered visible to users; do not embed private keys, passwords, or privileged credentials there. If a credential is committed accidentally, remove or replace it and rotate it where applicable; removing it from the latest revision alone may not clear repository history.
+
 ## Browser, platform, and asset review checklist
 
 These are review actions, not verified results or performance measurements. No compatibility testing is recorded here.
@@ -37,6 +43,7 @@ These are review actions, not verified results or performance measurements. No c
 - [ ] Verify remote resource URLs and consider the experience if a resource is unavailable. Trace references in source, styles, and native configuration before removing assets from the source tree or `android/` wrapper.
 - [ ] Compare narrow mobile-sized and desktop-sized web viewports, checking status information and controls. For native changes, also review relevant layouts in the Android wrapper.
 - [ ] Try the foundation screen's platform and engine status display and any visible controls. Do not infer finance workflows from this screen.
+- [ ] Before committing, inspect changed configuration and data-handling code for credentials or real personal information. Treat values bundled into web or native clients as visible to users.
 
 ## Accessibility review checklist
 
