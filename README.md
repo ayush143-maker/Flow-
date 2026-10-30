@@ -15,6 +15,8 @@ Useful web-development commands:
     npm run build
     npm run preview
 
-## Code organization
+## Code organization and review
 
-Most application code is under `src/`. The `services/native/` area contains the native bridge and web fallback, while `theme/` holds visual tokens and global styling. The `android/` directory contains the native wrapper. The root `index.html` and Vite and Capacitor configuration files support the web-to-native project setup. Keep the web fallback aligned with changes to bridge behaviour.
+Most application code is under `src/`. The `services/native/` area contains the native bridge and web fallback, while `theme/` holds visual tokens and global styling. The `android/` directory contains the native wrapper. The root `index.html` and Vite and Capacitor configuration files support the web-to-native project setup.
+
+After changing application code, review the web app through the development server and run `npm run typecheck` and `npm run build`. Use `npm run preview` to review the production build locally. Keep the web fallback aligned with changes to bridge behaviour.
