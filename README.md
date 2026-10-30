@@ -17,4 +17,4 @@ Useful web-development commands:
 
 ## Code organization
 
-Most application code is under `src/`. The `services/native/` area contains the native bridge and web fallback, while `theme/` holds visual tokens and global styling. The `android/` directory contains the native wrapper. Keep the web fallback aligned with changes to bridge behaviour.
+Most application code is under `src/`. The `services/native/` area contains the native bridge and web fallback, while `theme/` holds visual tokens and global styling. The `android/` directory contains the native wrapper. The root `index.html` and Vite and Capacitor configuration files support the web-to-native project setup. Keep the web fallback aligned with changes to bridge behaviour.
