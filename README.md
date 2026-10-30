@@ -27,6 +27,16 @@ Most application code is under `src/`; the `theme/` area holds visual tokens and
 
 For app identity or native-wrapper settings, review `capacitor.config.ts` and relevant files under `android/` before editing. The listed root files do not include an `.env.example`, and this README does not define environment variables or backend settings. Do not add undocumented configuration or place credentials in tracked files. Values included in a web or native client should be treated as visible to users. Local preference storage support does not establish that financial records or other sensitive data are stored.
 
+## Deployment-readiness checklist
+
+The following are recommendations to complete when preparing a deployment; they do not indicate that a deployment has happened.
+
+- [ ] Set the web project root to the repository directory containing `package.json`, `index.html`, and `vite.config.ts`.
+- [ ] Use the existing Vite build command, `npm run build`. Vite commonly writes production output to `dist/`, but check `vite.config.ts` and the actual build output before setting an output directory; do not assume a directory that has not been verified.
+- [ ] Review the entry and asset references in `index.html`, including `/src/main.tsx` and `/favicon.svg`. Keep the referenced files in place or update references when moving them. These paths begin at the site root; if the web app is published below a domain root, check the Vite configuration and confirm that generated asset URLs resolve from that location.
+- [ ] No `.env.example` is listed among the root files. Do not invent environment variables or add environment configuration based on assumptions. If a configuration template is added later, use only the variables it documents and keep secrets out of tracked files and client code.
+- [ ] After publishing the web app, open the published page and review its status screen, assets, visible controls, and navigation in a browser. Check the final published URLs and fix missing resources or incorrect paths. This web review does not replace checking the Android wrapper when a change affects it.
+
 ## Contributor handoff
 
 Keep changes focused and preserve filenames and relative references, or update every affected reference when necessary. In your handoff, summarize what changed and identify the relevant files, noting whether the change affects the web screen, configuration, or Android wrapper. Before publishing, manually review the web page and any relevant native changes, then inspect the final changes for unintended edits or private information. This is a review checklist, not a record of completed checks.
