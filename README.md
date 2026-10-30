@@ -27,6 +27,16 @@ Most application code is under `src/`; the `theme/` area holds visual tokens and
 
 For app identity or native-wrapper settings, review `capacitor.config.ts` and the relevant files under `android/` before making project-specific changes. Avoid changing configuration based on assumptions about settings not documented here.
 
+## Asset and loading review checklist
+
+These are review actions, not verified results or performance measurements:
+
+- [ ] Verify that the root-relative `/favicon.svg` reference resolves to the intended file when running the web app. Inspect other image, audio, video, and font references in `src/` and confirm their local paths.
+- [ ] Check whether assets in the source tree and `android/` wrapper are still used before removing them; trace references in source, styles, and native configuration.
+- [ ] Review unusually large images or other media in relation to their displayed or played role. Consider a suitable size or encoding where appropriate, then inspect the result.
+- [ ] Inspect external font, script, and other remote-resource references in the web app and native configuration. Confirm each is intentional and needed, and consider the experience if a resource is unavailable.
+- [ ] After changes, review asset loading in the web app and, when native assets or behavior are involved, in the Android wrapper as well.
+
 ## Manual review checklist
 
 These are actions to perform, not verified results:
