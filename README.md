@@ -40,3 +40,10 @@ The following are recommendations to complete when preparing a deployment; they 
 ## Contributor handoff
 
 Keep changes focused and preserve filenames and relative references, or update every affected reference when necessary. In your handoff, summarize what changed and identify the relevant files, noting whether the change affects the web screen, configuration, or Android wrapper. Before publishing, manually review the web page and any relevant native changes, then inspect the final changes for unintended edits or private information. This is a review checklist, not a record of completed checks.
+
+## Final release review
+
+- Check that `index.html` still points to the intended application entry module before publishing.
+- Check the scripts and dependency versions in `package.json`; use the repository's declared workflow rather than assuming a generic build command.
+- Verify local references such as `/favicon.svg` resolve with the same relative paths after publishing.
+- Review the published result once on a narrow screen and once on a wider screen; treat this as a release check, not an automated test report.
