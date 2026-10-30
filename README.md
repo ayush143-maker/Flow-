@@ -37,4 +37,15 @@ These are actions to perform, not verified results:
 - [ ] Inspect the web layout at narrow and wide viewport widths, checking that status information and controls remain readable.
 - [ ] For changes involving native behavior or configuration, review the Android wrapper in an appropriate native development environment; web review alone does not cover it.
 
+## Accessibility review checklist
+
+These are future checks to perform on the web screen and, where relevant, the Android wrapper; they are not compliance claims or verified results:
+
+- [ ] Use Tab and Shift+Tab in the web app to reach the platform and engine status screen's interactive controls, if present. Check keyboard order and operation; review native controls with a hardware keyboard where supported.
+- [ ] Confirm focused web controls have a visible focus indicator. For native-wrapper changes, check the corresponding platform focus treatment where applicable.
+- [ ] Check that any controls have meaningful accessible names and that platform and engine status text is understandable to assistive technology; do not infer behavior beyond the foundation screen.
+- [ ] Review text, status indicators, and control contrast against the app theme, including narrow viewports and any states shown by the screen.
+- [ ] If meaningful images are present or added, check that they have appropriate text alternatives; identify decorative imagery as decorative.
+- [ ] If transitions or other motion are present or added, check how the web app responds to reduced-motion preferences and review native behavior on the target platform.
+
 No review results are recorded here. `npm run typecheck`, `npm run build`, and `npm run preview` are available project commands, but running them does not replace the manual review checklist.
