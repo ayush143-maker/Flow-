@@ -1,15 +1,23 @@
 # Flow-
 
-Flow is a local-first personal-finance app for Android, built with React, Vite, and Capacitor. The package includes local preference storage and scripts for syncing the web build to Android.
+**Flow** is a local-first personal-finance app foundation for Android, built with React, TypeScript, Vite, and Capacitor. The current project focuses on the connection between the web interface and its native Android layer, with a small foundation screen that reports platform and engine status.
 
-## Run locally
+The codebase includes theme tokens, app identity, native bridge interfaces, and Capacitor integration. Its package also includes local preference storage support, keeping the project oriented toward on-device data rather than requiring a remote service for the basic foundation.
 
-Install dependencies with npm install, then run npm run dev for the web app. Use the Android scripts included in package.json for a native build; an Android SDK and Java toolchain may be required.
+## Run the web app
 
-## Development workflow
+Install dependencies and start the Vite development server:
 
-Start with the package scripts and the existing source organization. Locate the page or screen component and its imports before changing the UI. Keep shared components and styles consistent rather than duplicating the same behavior in multiple places.
+    npm install
+    npm run dev
 
-## Validation
+Useful checks for web development are:
 
-Run the development server while iterating, then run the production build before deployment. Check type/build output, browser-console messages, navigation, and the final deployed page. Native-wrapper projects also need a separate on-device test after syncing the web build.
+    npm run typecheck
+    npm run build
+
+npm run preview serves the built web bundle locally.
+
+## Code organization
+
+Most application code lives under src/. The services/native/ area contains the native bridge and web fallback, while theme/ keeps visual tokens and global styling together. The android/ directory contains the native wrapper. When changing bridge behaviour, keep the web fallback aligned and avoid displaying a native-connected state unless the native plugin actually responds.
