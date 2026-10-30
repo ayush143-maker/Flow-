@@ -1,17 +1,17 @@
 # Flow
 
-Flow is an Android personal-finance app foundation built with React, TypeScript, Vite, and Capacitor. The current project focuses on the web-to-native connection and a foundation screen that reports platform and engine status. It also includes theme tokens, app identity, native bridge interfaces, and local preference storage support. This README does not describe finance workflows such as tracking transactions or managing accounts.
+Flow is an Android personal-finance app foundation built with React, TypeScript, Vite, and Capacitor. Its current focus is the web-to-native connection and a foundation screen that reports platform and engine status. The project also includes theme tokens, app identity, native bridge interfaces, and local preference storage support. This README does not describe finance workflows such as transaction tracking or account management.
 
 ## Run the web app
 
-Install dependencies and start the Vite development server:
+The package manifest specifies Node.js `>=20`. From the project directory, install dependencies and start the Vite development server:
 
 ```sh
 npm install
 npm run dev
 ```
 
-Other web-development commands:
+Other web commands are:
 
 ```sh
 npm run typecheck
@@ -19,56 +19,29 @@ npm run build
 npm run preview
 ```
 
-The Android wrapper is in `android/`. Web development and preview commands are for reviewing the web app, not a substitute for checking the native wrapper.
+These commands are for web development and preview; they do not replace checking the Android wrapper in `android/`.
 
-## Project files
+## Project structure and references
 
-Most application code is under `src/`; the `theme/` area holds visual tokens and global styling. Review the relevant screen files under `src/` before changing visible copy. The root `index.html` references `/src/main.tsx` and `/favicon.svg`; preserve these root-relative paths or update the references if their locations change.
+Most application code is under `src/`; the `theme/` area contains visual tokens and global styling. Review the relevant screen files under `src/` before changing visible copy. The root `index.html` references `/src/main.tsx` and `/favicon.svg`. Preserve these root-relative paths or update them if files move, and check how they resolve if the app is served below a domain root.
 
-For app identity or native-wrapper settings, review `capacitor.config.ts` and relevant files under `android/` before editing. The listed root files do not include an `.env.example`, and this README does not define environment variables or backend settings. Do not add undocumented configuration or place credentials in tracked files. Values included in a web or native client should be treated as visible to users. Local preference storage support does not establish that financial records or other sensitive data are stored.
-
-## Deployment-readiness checklist
-
-The following are recommendations to complete when preparing a deployment; they do not indicate that a deployment has happened.
-
-- [ ] Set the web project root to the repository directory containing `package.json`, `index.html`, and `vite.config.ts`.
-- [ ] Use the existing Vite build command, `npm run build`. Vite commonly writes production output to `dist/`, but check `vite.config.ts` and the actual build output before setting an output directory; do not assume a directory that has not been verified.
-- [ ] Review the entry and asset references in `index.html`, including `/src/main.tsx` and `/favicon.svg`. Keep the referenced files in place or update references when moving them. These paths begin at the site root; if the web app is published below a domain root, check the Vite configuration and confirm that generated asset URLs resolve from that location.
-- [ ] No `.env.example` is listed among the root files. Do not invent environment variables or add environment configuration based on assumptions. If a configuration template is added later, use only the variables it documents and keep secrets out of tracked files and client code.
-- [ ] After publishing the web app, open the published page and review its status screen, assets, visible controls, and navigation in a browser. Check the final published URLs and fix missing resources or incorrect paths. This web review does not replace checking the Android wrapper when a change affects it.
-
-## Contributor handoff
-
-Keep changes focused and preserve filenames and relative references, or update every affected reference when necessary. In your handoff, summarize what changed and identify the relevant files, noting whether the change affects the web screen, configuration, or Android wrapper. Before publishing, manually review the web page and any relevant native changes, then inspect the final changes for unintended edits or private information. This is a review checklist, not a record of completed checks.
-
-## Final release review
-
-- Check that `index.html` still points to the intended application entry module before publishing.
-- Check the scripts and dependency versions in `package.json`; use the repository's declared workflow rather than assuming a generic build command.
-- Verify local references such as `/favicon.svg` resolve with the same relative paths after publishing.
-- Review the published result once on a narrow screen and once on a wider screen; treat this as a release check, not an automated test report.
-
-## Repository map
-
-- `android` — Android project directory.
-- `capacitor.config.ts` — Capacitor configuration file.
-- `index.html` — HTML page entry point.
-- `package.json` — package manifest, dependency list, and declared scripts.
-- `scripts` — project scripts directory.
-- `src` — source-code directory.
+For app identity or native-wrapper settings, review `capacitor.config.ts` and relevant files under `android/`. The root file list does not include an `.env.example`, and this README does not define environment variables or backend settings. Do not add undocumented configuration or put credentials in tracked files. Values included in a web or native client should be treated as visible to users. Local preference storage support does not establish that financial records or other sensitive data are stored.
 
 ## Package scripts
 
-The following scripts are declared in the repository's `package.json`. Their presence documents the configured commands; it does not mean they have been executed or passed.
+The following commands are declared in `package.json`; their presence does not indicate that they have been run:
 
-| Script | Command | Purpose |
-|---|---|---|
-| `dev` | `npm run dev` | Starts the development server. |
-| `typecheck` | `npm run typecheck` | Runs the configured TypeScript check. |
-| `build` | `npm run build` | Runs the configured production build command. |
-| `preview` | `npm run preview` | Starts the local preview for the production build. |
-| `icons` | `npm run icons` | Runs the repository's icon-generation script. |
-| `cap:sync` | `npm run cap:sync` | Builds the web app and synchronizes the Android Capacitor project. |
-| `android:debug` | `npm run android:debug` | Synchronizes the Android project and runs the Gradle debug assembly. |
+| Command | Purpose |
+|---|---|
+| `npm run icons` | Runs the icon-generation script. |
+| `npm run cap:sync` | Builds the web app and synchronizes the Android Capacitor project. |
+| `npm run android:debug` | Synchronizes the Android project and runs the Gradle debug assembly. |
 
-The package manifest specifies Node.js `>=20` in its `engines` field.
+## Key files
+
+- `src/` — application source code.
+- `android/` — Android project.
+- `scripts/` — project scripts.
+- `capacitor.config.ts` — Capacitor configuration.
+- `package.json` — dependencies and declared scripts.
+- `index.html` — web entry page.
