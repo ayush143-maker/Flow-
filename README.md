@@ -21,8 +21,8 @@ npm run preview
 
 The Android wrapper is in `android/`. The web development and preview commands are for reviewing the web app, not a substitute for checking the native wrapper.
 
-## Code organization and review
+## Personalize and review
 
-Most application code is under `src/`. The `services/native/` area contains the native bridge and web fallback, while `theme/` holds visual tokens and global styling. The `android/` directory contains the native wrapper. The root `index.html` and Vite and Capacitor configuration files support the web-to-native setup.
+Most application code is under `src/`; the `theme/` area holds visual tokens and global styling. Use those existing theme files when adjusting the app's appearance, and inspect the relevant screen files under `src/` before changing visible copy. The root `index.html` references `/favicon.svg`; preserve that root-relative path if you keep the existing favicon, or update the reference if you change its location.
 
-After changing application code, review the web app through the development server and run `npm run typecheck` and `npm run build`. Use `npm run preview` to review the production build locally. Keep the web fallback aligned with changes to bridge behavior.
+For app identity or native-wrapper settings, review `capacitor.config.ts` and the relevant files under `android/` before making project-specific changes. Avoid changing configuration based on assumptions about settings not documented here. After changes, review the web app through the development server and run `npm run typecheck` and `npm run build`; use `npm run preview` to review the production build locally.
