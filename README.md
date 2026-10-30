@@ -1,4 +1,4 @@
-# Flow-
+# Flow
 
 Flow is an Android personal-finance app foundation built with React, TypeScript, Vite, and Capacitor. The current project focuses on the web-to-native connection and a foundation screen that reports platform and engine status. It also includes theme tokens, app identity, native bridge interfaces, and local preference storage support. The README does not describe finance workflows such as tracking transactions or managing accounts.
 
@@ -6,19 +6,23 @@ Flow is an Android personal-finance app foundation built with React, TypeScript,
 
 Install dependencies and start the Vite development server:
 
-    npm install
-    npm run dev
+```sh
+npm install
+npm run dev
+```
 
-Useful web-development commands:
+Other web-development commands:
 
-    npm run typecheck
-    npm run build
-    npm run preview
+```sh
+npm run typecheck
+npm run build
+npm run preview
+```
 
 The Android wrapper is in `android/`. The web development and preview commands are for reviewing the web app, not a substitute for checking the native wrapper.
 
 ## Code organization and review
 
-Most application code is under `src/`. The `services/native/` area contains the native bridge and web fallback, while `theme/` holds visual tokens and global styling. The `android/` directory contains the native wrapper. The root `index.html` and Vite and Capacitor configuration files support the web-to-native project setup.
+Most application code is under `src/`. The `services/native/` area contains the native bridge and web fallback, while `theme/` holds visual tokens and global styling. The `android/` directory contains the native wrapper. The root `index.html` and Vite and Capacitor configuration files support the web-to-native setup.
 
-After changing application code, review the web app through the development server and run `npm run typecheck` and `npm run build`. Use `npm run preview` to review the production build locally. Keep the web fallback aligned with changes to bridge behaviour.
+After changing application code, review the web app through the development server and run `npm run typecheck` and `npm run build`. Use `npm run preview` to review the production build locally. Keep the web fallback aligned with changes to bridge behavior.
